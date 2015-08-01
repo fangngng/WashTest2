@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.WashHousesEntity" table="WashHouses" schema="dbo" catalog="WashRoom">
+        <property name="washHouseId" column="WashHouseID"/>
+        <property name="washHouseName" column="WashHouseName"/>
+        <property name="summary" column="Summary"/>
+        <property name="xCoordinate" column="XCoordinate"/>
+        <property name="yCoordinate" column="YCoordinate"/>
+        <property name="washHouseAddr" column="WashHouseAddr"/>
+        <property name="washHousePhone" column="WashHousePhone"/>
+        <property name="washHouseMiniName" column="WashHouseMiniName"/>
+        <property name="isActive" column="IsActive"/>
+        <property name="createTime" column="CreateTime"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server - WashRoom@localhost" uuid="278075c9-ea11-4650-9e9e-5dc1aac142c9">
+      <secret-storage>master_key</secret-storage>
+      <user-name>washer</user-name>
+      <schema-pattern>WashRoom.dbo</schema-pattern>
+      <default-schemas>WashRoom.*</default-schemas>
+    </data-source>
+  </component>
+</project>

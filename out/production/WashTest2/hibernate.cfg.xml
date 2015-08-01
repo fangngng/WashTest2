@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=WashRoom</property>
+    <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <mapping class="entity.GoodsInfoEntity"/>
+    <mapping resource="entity/GoodsInfoEntity.hbm.xml"/>
+    <mapping class="entity.GroupInfoEntity"/>
+    <mapping resource="entity/GroupInfoEntity.hbm.xml"/>
+    <mapping class="entity.LoginUserEntity"/>
+    <mapping resource="entity/LoginUserEntity.hbm.xml"/>
+    <mapping class="entity.OrderGoodsAlEntity"/>
+    <mapping resource="entity/OrderGoodsAlEntity.hbm.xml"/>
+    <mapping class="entity.OrderInfoEntity"/>
+    <mapping resource="entity/OrderInfoEntity.hbm.xml"/>
+    <mapping resource="entity/UserInfoEntity.hbm.xml"/>
+    <mapping class="entity.UserInfoEntity"/>
+    <mapping resource="entity/WashHousesEntity.hbm.xml"/>
+    <mapping class="entity.WashHousesEntity"/>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

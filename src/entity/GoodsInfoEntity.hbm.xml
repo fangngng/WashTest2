@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.GoodsInfoEntity" table="GoodsInfo" schema="dbo" catalog="WashRoom">
+        <id name="goodsId" column="GoodsID">
+            <generator class="native"/>
+                </id>
+        <property name="goodsName" column="GoodsName"/>
+        <property name="goodsDesc" column="GoodsDesc"/>
+        <property name="goodsPrice" column="GoodsPrice"/>
+        <property name="isActive" column="IsActive"/>
+        <property name="createTime" column="CreateTime"/>
+    </class>
+</hibernate-mapping>

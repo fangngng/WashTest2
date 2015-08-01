@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.OrdersEntity" table="Orders" schema="dbo" catalog="WashDB">
+        <id name="orderId" column="OrderID"/>
+        <property name="createTime" column="CreateTime"/>
+        <property name="createUserId" column="CreateUserID"/>
+        <property name="orderType" column="OrderType"/>
+        <property name="sum" column="Sum"/>
+        <property name="washhouseId" column="WashhouseID"/>
+        <property name="customerAddress" column="CustomerAddress"/>
+        <property name="contactNumber" column="ContactNumber"/>
+        <property name="customerName" column="CustomerName"/>
+        <property name="payment" column="Payment"/>
+        <property name="payStat" column="PayStat"/>
+        <property name="orderStat" column="OrderStat"/>
+        <property name="memo" column="Memo"/>
+        <property name="isActive" column="IsActive"/>
+        <property name="xCoordinate" column="XCoordinate"/>
+        <property name="yCoordinate" column="YCoordinate"/>
+    </class>
+</hibernate-mapping>

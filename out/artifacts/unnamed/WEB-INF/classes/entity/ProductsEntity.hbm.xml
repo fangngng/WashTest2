@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.ProductsEntity" table="Products" schema="dbo" catalog="WashDB">
+        <id name="productId" column="ProductID"/>
+        <property name="productName" column="ProductName"/>
+        <property name="clothTypeId" column="ClothTypeID"/>
+        <property name="washingMethodId" column="WashingMethodID"/>
+        <property name="price" column="Price"/>
+        <property name="isActive" column="IsActive"/>
+        <property name="createTime" column="CreateTime"/>
+    </class>
+</hibernate-mapping>

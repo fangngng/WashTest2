@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.UsersEntity" table="Users" schema="dbo" catalog="WashDB">
+        <id name="userId" column="UserID"/>
+        <property name="userName" column="UserName"/>
+        <property name="phone" column="Phone"/>
+        <property name="email" column="Email"/>
+        <property name="passWord" column="PassWord"/>
+        <property name="sex" column="Sex"/>
+        <property name="address" column="Address"/>
+        <property name="isActiveful" column="IsActiveful"/>
+        <property name="createTime" column="CreateTime"/>
+        <property name="memo" column="Memo"/>
+    </class>
+</hibernate-mapping>

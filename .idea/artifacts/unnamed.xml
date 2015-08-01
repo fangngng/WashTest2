@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <root id="root">
+      <element id="module-output" name="WashTest2" />
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="lib" />
+      </element>
+      <element id="javaee-facet-resources" facet="WashTest2/web/Web" />
+      <element id="javaee-facet-resources" facet="WashTest2/web/Web2" />
+    </root>
+  </artifact>
+</component>

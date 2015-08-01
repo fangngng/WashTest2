@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="SQL Server - WashRoom@localhost" uuid="278075c9-ea11-4650-9e9e-5dc1aac142c9">
+    <database-info product="Microsoft SQL Server" version="11.00.3128" jdbc-version="4.0" driver-name="Microsoft JDBC Driver 4.0 for SQL Server" driver-version="4.0.2206.100">
+      <extra-name-characters>$#@</extra-name-characters>
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="dbo" catalog="WashRoom"/>
+    <table name="GoodsInfo" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="GoodsID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="GoodsName" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="GoodsDesc" sqlType="varchar" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="GoodsPrice" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="GroupInfo" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="GroupID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="GroupName" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="LoginUser" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="LoginID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="LoginName" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LoginPwd" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12" def="JygnTicpJw=="/>
+      <column name="LastLogintime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <column name="LoginCount" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <column name="CreateBy" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="OrderGoodsAL" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="ALID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="OrderID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="GoodsID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="GoodsCount" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="OrderInfo" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="OrderID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="OrderCreateDate" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <column name="UserID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="OrderEndDate" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <column name="OrderStatus" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OrderIsPayed" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OrderMoney" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
+      <column name="OrderPayedMoney" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
+      <column name="OrderCoupons" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
+      <column name="PayMethod" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="UserInfo" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="UserID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserName" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserPhone" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserAddr" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserGroup" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserSex" sqlType="varchar" precision="7" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="WashHouses" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="WashHouseID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="WashHouseName" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Summary" sqlType="varchar" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="XCoordinate" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="YCoordinate" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="WashHouseAddr" sqlType="varchar" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="WashHousePhone" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="WashHouseMiniName" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+    </table>
+  </data-source>
+</component>
