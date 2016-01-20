@@ -5,13 +5,29 @@
 <hibernate-mapping>
 
     <class name="entity.LoginUserEntity" table="LoginUser" schema="dbo" catalog="WashRoom">
-        <property name="loginId" column="LoginID"/>
-        <property name="loginName" column="LoginName"/>
-        <property name="loginPwd" column="LoginPwd"/>
-        <property name="isActive" column="IsActive"/>
-        <property name="lastLogintime" column="LastLogintime"/>
-        <property name="loginCount" column="LoginCount"/>
-        <property name="createTime" column="CreateTime"/>
-        <property name="createBy" column="CreateBy"/>
+        <id name="loginId">
+            <column name="LoginID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="loginName">
+            <column name="LoginName" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="loginPwd">
+            <column name="LoginPwd" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="isActive">
+            <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
+        </property>
+        <property name="lastLogintime">
+            <column name="LastLogintime" sql-type="datetime"/>
+        </property>
+        <property name="loginCount">
+            <column name="LoginCount" sql-type="int"/>
+        </property>
+        <property name="createTime">
+            <column name="CreateTime" sql-type="datetime"/>
+        </property>
+        <property name="createBy">
+            <column name="CreateBy" sql-type="varchar" length="100"/>
+        </property>
     </class>
 </hibernate-mapping>

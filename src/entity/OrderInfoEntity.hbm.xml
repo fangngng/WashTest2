@@ -5,17 +5,38 @@
 <hibernate-mapping>
 
     <class name="entity.OrderInfoEntity" table="OrderInfo" schema="dbo" catalog="WashRoom">
-        <property name="orderId" column="OrderID"/>
-        <property name="orderCreateDate" column="OrderCreateDate"/>
-        <property name="userId" column="UserID"/>
-        <property name="orderEndDate" column="OrderEndDate"/>
-        <property name="orderStatus" column="OrderStatus"/>
-        <property name="orderIsPayed" column="OrderIsPayed"/>
-        <property name="orderMoney" column="OrderMoney"/>
-        <property name="orderPayedMoney" column="OrderPayedMoney"/>
-        <property name="orderCoupons" column="OrderCoupons"/>
-        <property name="payMethod" column="PayMethod"/>
-        <property name="isActive" column="IsActive"/>
-        <property name="createTime" column="CreateTime"/>
+        <id name="orderId">
+            <column name="OrderID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="orderCreateDate">
+            <column name="OrderCreateDate" sql-type="datetime"/>
+        </property>
+        <property name="orderEndDate">
+            <column name="OrderEndDate" sql-type="datetime"/>
+        </property>
+        <property name="orderStatus">
+            <column name="OrderStatus" sql-type="varchar" length="10"/>
+        </property>
+        <property name="orderIsPayed">
+            <column name="OrderIsPayed" sql-type="varchar" length="1"/>
+        </property>
+        <property name="orderMoney">
+            <column name="OrderMoney" sql-type="decimal" precision="20" scale="2"/>
+        </property>
+        <property name="orderPayedMoney">
+            <column name="OrderPayedMoney" sql-type="decimal" precision="20" scale="2"/>
+        </property>
+        <property name="orderCoupons">
+            <column name="OrderCoupons" sql-type="decimal" precision="20" scale="2"/>
+        </property>
+        <property name="payMethod">
+            <column name="PayMethod" sql-type="varchar" length="10"/>
+        </property>
+        <property name="isActive">
+            <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="CreateTime" sql-type="datetime"/>
+        </property>
     </class>
 </hibernate-mapping>

@@ -20,6 +20,17 @@
     <mapping class="entity.UserInfoEntity"/>
     <mapping resource="entity/WashHousesEntity.hbm.xml"/>
     <mapping class="entity.WashHousesEntity"/>
+    <mapping resource="entity/GoodsInfoEntity.hbm.xml"/>
+    <mapping resource="entity/GroupInfoEntity.hbm.xml"/>
+    <mapping resource="entity/LoginUserEntity.hbm.xml"/>
+    <mapping resource="entity/OrderGoodsAlEntity.hbm.xml"/>
+    <mapping resource="entity/OrderInfoEntity.hbm.xml"/>
+    <mapping resource="entity/UserGroupAlEntity.hbm.xml"/>
+    <mapping class="entity.UserGroupAlEntity"/>
+    <mapping resource="entity/UserInfoEntity.hbm.xml"/>
+    <mapping resource="entity/WashHousesEntity.hbm.xml"/>
+    <mapping resource="entity/SysdiagramsEntity.hbm.xml"/>
+    <mapping class="entity.SysdiagramsEntity"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>

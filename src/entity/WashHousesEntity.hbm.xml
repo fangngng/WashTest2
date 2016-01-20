@@ -5,15 +5,35 @@
 <hibernate-mapping>
 
     <class name="entity.WashHousesEntity" table="WashHouses" schema="dbo" catalog="WashRoom">
-        <property name="washHouseId" column="WashHouseID"/>
-        <property name="washHouseName" column="WashHouseName"/>
-        <property name="summary" column="Summary"/>
-        <property name="xCoordinate" column="XCoordinate"/>
-        <property name="yCoordinate" column="YCoordinate"/>
-        <property name="washHouseAddr" column="WashHouseAddr"/>
-        <property name="washHousePhone" column="WashHousePhone"/>
-        <property name="washHouseMiniName" column="WashHouseMiniName"/>
-        <property name="isActive" column="IsActive"/>
-        <property name="createTime" column="CreateTime"/>
+        <id name="washHouseId">
+            <column name="WashHouseID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="washHouseName">
+            <column name="WashHouseName" sql-type="varchar" length="100"/>
+        </property>
+        <property name="summary">
+            <column name="Summary" sql-type="varchar" length="500"/>
+        </property>
+        <property name="xCoordinate">
+            <column name="XCoordinate" sql-type="varchar" length="50"/>
+        </property>
+        <property name="yCoordinate">
+            <column name="YCoordinate" sql-type="varchar" length="50"/>
+        </property>
+        <property name="washHouseAddr">
+            <column name="WashHouseAddr" sql-type="varchar" length="500"/>
+        </property>
+        <property name="washHousePhone">
+            <column name="WashHousePhone" sql-type="varchar" length="20"/>
+        </property>
+        <property name="washHouseMiniName">
+            <column name="WashHouseMiniName" sql-type="varchar" length="10"/>
+        </property>
+        <property name="isActive">
+            <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="CreateTime" sql-type="datetime"/>
+        </property>
     </class>
 </hibernate-mapping>

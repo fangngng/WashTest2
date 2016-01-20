@@ -5,13 +5,23 @@
 <hibernate-mapping>
 
     <class name="entity.GoodsInfoEntity" table="GoodsInfo" schema="dbo" catalog="WashRoom">
-        <id name="goodsId" column="GoodsID">
-            <generator class="native"/>
-                </id>
-        <property name="goodsName" column="GoodsName"/>
-        <property name="goodsDesc" column="GoodsDesc"/>
-        <property name="goodsPrice" column="GoodsPrice"/>
-        <property name="isActive" column="IsActive"/>
-        <property name="createTime" column="CreateTime"/>
+        <id name="goodsId">
+            <column name="GoodsID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="goodsName">
+            <column name="GoodsName" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="goodsDesc">
+            <column name="GoodsDesc" sql-type="varchar" length="300"/>
+        </property>
+        <property name="goodsPrice">
+            <column name="GoodsPrice" sql-type="decimal" precision="20" scale="2" not-null="true"/>
+        </property>
+        <property name="isActive">
+            <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="CreateTime" sql-type="datetime"/>
+        </property>
     </class>
 </hibernate-mapping>

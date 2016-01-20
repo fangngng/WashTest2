@@ -1,13 +1,10 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by fangng on 2015/7/9.
+ * Created by fangngng on 2016/1/21.
  */
 @Entity
 @Table(name = "WashHouses", schema = "dbo", catalog = "WashRoom")
@@ -23,8 +20,8 @@ public class WashHousesEntity {
     private String isActive;
     private Timestamp createTime;
 
-    @Basic
-    @Column(name = "WashHouseID")
+    @Id
+    @Column(name = "WashHouseID", nullable = false, insertable = true, updatable = true)
     public int getWashHouseId() {
         return washHouseId;
     }
@@ -34,7 +31,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "WashHouseName")
+    @Column(name = "WashHouseName", nullable = true, insertable = true, updatable = true, length = 100)
     public String getWashHouseName() {
         return washHouseName;
     }
@@ -44,7 +41,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "Summary")
+    @Column(name = "Summary", nullable = true, insertable = true, updatable = true, length = 500)
     public String getSummary() {
         return summary;
     }
@@ -54,7 +51,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "XCoordinate")
+    @Column(name = "XCoordinate", nullable = true, insertable = true, updatable = true, length = 50)
     public String getxCoordinate() {
         return xCoordinate;
     }
@@ -64,7 +61,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "YCoordinate")
+    @Column(name = "YCoordinate", nullable = true, insertable = true, updatable = true, length = 50)
     public String getyCoordinate() {
         return yCoordinate;
     }
@@ -74,7 +71,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "WashHouseAddr")
+    @Column(name = "WashHouseAddr", nullable = true, insertable = true, updatable = true, length = 500)
     public String getWashHouseAddr() {
         return washHouseAddr;
     }
@@ -84,7 +81,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "WashHousePhone")
+    @Column(name = "WashHousePhone", nullable = true, insertable = true, updatable = true, length = 20)
     public String getWashHousePhone() {
         return washHousePhone;
     }
@@ -94,7 +91,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "WashHouseMiniName")
+    @Column(name = "WashHouseMiniName", nullable = true, insertable = true, updatable = true, length = 10)
     public String getWashHouseMiniName() {
         return washHouseMiniName;
     }
@@ -104,7 +101,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "IsActive")
+    @Column(name = "IsActive", nullable = false, insertable = true, updatable = true, length = 1)
     public String getIsActive() {
         return isActive;
     }
@@ -114,7 +111,7 @@ public class WashHousesEntity {
     }
 
     @Basic
-    @Column(name = "CreateTime")
+    @Column(name = "CreateTime", nullable = true, insertable = true, updatable = true)
     public Timestamp getCreateTime() {
         return createTime;
     }

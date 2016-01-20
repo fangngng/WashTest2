@@ -7,31 +7,20 @@ import java.sql.Timestamp;
  * Created by fangngng on 2016/1/21.
  */
 @Entity
-@Table(name = "GroupInfo", schema = "dbo", catalog = "WashRoom")
-public class GroupInfoEntity {
-    private int groupId;
-    private String groupName;
+@Table(name = "UserGroupAL", schema = "dbo", catalog = "WashRoom")
+public class UserGroupAlEntity {
+    private int alid;
     private String isActive;
     private Timestamp createTime;
 
     @Id
-    @Column(name = "GroupID", nullable = false, insertable = true, updatable = true)
-    public int getGroupId() {
-        return groupId;
+    @Column(name = "ALID", nullable = false, insertable = true, updatable = true)
+    public int getAlid() {
+        return alid;
     }
 
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
-
-    @Basic
-    @Column(name = "GroupName", nullable = false, insertable = true, updatable = true, length = 200)
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setAlid(int alid) {
+        this.alid = alid;
     }
 
     @Basic
@@ -59,10 +48,9 @@ public class GroupInfoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        GroupInfoEntity that = (GroupInfoEntity) o;
+        UserGroupAlEntity that = (UserGroupAlEntity) o;
 
-        if (groupId != that.groupId) return false;
-        if (groupName != null ? !groupName.equals(that.groupName) : that.groupName != null) return false;
+        if (alid != that.alid) return false;
         if (isActive != null ? !isActive.equals(that.isActive) : that.isActive != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
 
@@ -71,8 +59,7 @@ public class GroupInfoEntity {
 
     @Override
     public int hashCode() {
-        int result = groupId;
-        result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
+        int result = alid;
         result = 31 * result + (isActive != null ? isActive.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         return result;

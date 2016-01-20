@@ -1,26 +1,21 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by fangng on 2015/7/9.
+ * Created by fangngng on 2016/1/21.
  */
 @Entity
 @Table(name = "OrderGoodsAL", schema = "dbo", catalog = "WashRoom")
 public class OrderGoodsAlEntity {
     private int alid;
-    private Integer orderId;
-    private Integer goodsId;
-    private Integer goodsCount;
+    private int goodsCount;
     private String isActive;
     private Timestamp createTime;
 
-    @Basic
-    @Column(name = "ALID")
+    @Id
+    @Column(name = "ALID", nullable = false, insertable = true, updatable = true)
     public int getAlid() {
         return alid;
     }
@@ -30,37 +25,17 @@ public class OrderGoodsAlEntity {
     }
 
     @Basic
-    @Column(name = "OrderID")
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    @Basic
-    @Column(name = "GoodsID")
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
-    }
-
-    @Basic
-    @Column(name = "GoodsCount")
-    public Integer getGoodsCount() {
+    @Column(name = "GoodsCount", nullable = false, insertable = true, updatable = true)
+    public int getGoodsCount() {
         return goodsCount;
     }
 
-    public void setGoodsCount(Integer goodsCount) {
+    public void setGoodsCount(int goodsCount) {
         this.goodsCount = goodsCount;
     }
 
     @Basic
-    @Column(name = "IsActive")
+    @Column(name = "IsActive", nullable = false, insertable = true, updatable = true, length = 1)
     public String getIsActive() {
         return isActive;
     }
@@ -70,7 +45,7 @@ public class OrderGoodsAlEntity {
     }
 
     @Basic
-    @Column(name = "CreateTime")
+    @Column(name = "CreateTime", nullable = true, insertable = true, updatable = true)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -87,9 +62,7 @@ public class OrderGoodsAlEntity {
         OrderGoodsAlEntity that = (OrderGoodsAlEntity) o;
 
         if (alid != that.alid) return false;
-        if (orderId != null ? !orderId.equals(that.orderId) : that.orderId != null) return false;
-        if (goodsId != null ? !goodsId.equals(that.goodsId) : that.goodsId != null) return false;
-        if (goodsCount != null ? !goodsCount.equals(that.goodsCount) : that.goodsCount != null) return false;
+        if (goodsCount != that.goodsCount) return false;
         if (isActive != null ? !isActive.equals(that.isActive) : that.isActive != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
 
@@ -99,9 +72,7 @@ public class OrderGoodsAlEntity {
     @Override
     public int hashCode() {
         int result = alid;
-        result = 31 * result + (orderId != null ? orderId.hashCode() : 0);
-        result = 31 * result + (goodsId != null ? goodsId.hashCode() : 0);
-        result = 31 * result + (goodsCount != null ? goodsCount.hashCode() : 0);
+        result = 31 * result + goodsCount;
         result = 31 * result + (isActive != null ? isActive.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         return result;

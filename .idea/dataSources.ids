@@ -9,49 +9,75 @@
     <schema name="dbo" catalog="WashRoom"/>
     <table name="GoodsInfo" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="GoodsID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="GoodsName" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="GoodsName" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="GoodsDesc" sqlType="varchar" precision="300" scale="0" nullable="true" jdbcType="12"/>
-      <column name="GoodsPrice" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="GoodsPrice" sqlType="decimal" precision="20" scale="2" nullable="false" jdbcType="3"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_GoodsInfo" columns="GoodsID"/>
+      <exported-key name="FK_OrderGoodsAL_GoodsInfo" table="OrderGoodsAL" schema="dbo" catalog="WashRoom" columns="GoodsID"/>
     </table>
     <table name="GroupInfo" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="GroupID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="GroupName" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="GroupName" sqlType="varchar" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_GroupInfo" columns="GroupID"/>
+      <exported-key name="FK_UserGroupAL_GroupInfo" table="UserGroupAL" schema="dbo" catalog="WashRoom" columns="GroupID"/>
+      <index name="IX_GroupInfo" unique="true" columns="GroupName"/>
     </table>
     <table name="LoginUser" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="LoginID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="LoginName" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="LoginPwd" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12" def="JygnTicpJw=="/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12" def="JygnTicpJw=="/>
       <column name="LastLogintime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
       <column name="LoginCount" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
       <column name="CreateBy" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PK_LoginUser" columns="LoginID"/>
+      <foreign-key name="FK_LoginUser_UserInfo" columns="UserID" ref-table="UserInfo" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="UserID" update-rule="1" delete-rule="1" deferrability="2"/>
     </table>
     <table name="OrderGoodsAL" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="ALID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="OrderID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="GoodsID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="GoodsCount" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OrderID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GoodsID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GoodsCount" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_OrderGoodsAL" columns="ALID"/>
+      <foreign-key name="FK_OrderGoodsAL_GoodsInfo" columns="GoodsID" ref-table="GoodsInfo" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="GoodsID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_OrderGoodsAL_OrderInfo" columns="OrderID" ref-table="OrderInfo" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="OrderID" update-rule="1" delete-rule="1" deferrability="2"/>
     </table>
     <table name="OrderInfo" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="OrderID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="OrderCreateDate" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
-      <column name="UserID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="UserID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="OrderEndDate" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
       <column name="OrderStatus" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <column name="OrderIsPayed" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
       <column name="OrderMoney" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
       <column name="OrderPayedMoney" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
+      <column name="WashHouseID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="OrderCoupons" sqlType="decimal" precision="20" scale="2" nullable="true" jdbcType="3"/>
       <column name="PayMethod" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_OrderInfo" columns="OrderID"/>
+      <foreign-key name="FK_OrderInfo_UserInfo" columns="UserID" ref-table="UserInfo" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="UserID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_OrderInfo_WashHouses" columns="WashHouseID" ref-table="WashHouses" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="WashHouseID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_OrderGoodsAL_OrderInfo" table="OrderGoodsAL" schema="dbo" catalog="WashRoom" columns="OrderID"/>
+    </table>
+    <table name="UserGroupAL" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="ALID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GroupID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_UserGroupAL" columns="ALID"/>
+      <foreign-key name="FK_UserGroupAL_GroupInfo" columns="GroupID" ref-table="GroupInfo" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="GroupID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_UserGroupAL_UserInfo" columns="UserID" ref-table="UserInfo" ref-schema="dbo" ref-catalog="WashRoom" ref-columns="UserID" update-rule="1" delete-rule="1" deferrability="2"/>
     </table>
     <table name="UserInfo" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="UserID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -60,8 +86,12 @@
       <column name="UserAddr" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
       <column name="UserGroup" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="UserSex" sqlType="varchar" precision="7" scale="0" nullable="true" jdbcType="12"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_UserInfo" columns="UserID"/>
+      <exported-key name="FK_LoginUser_UserInfo" table="LoginUser" schema="dbo" catalog="WashRoom" columns="UserID"/>
+      <exported-key name="FK_OrderInfo_UserInfo" table="OrderInfo" schema="dbo" catalog="WashRoom" columns="UserID"/>
+      <exported-key name="FK_UserGroupAL_UserInfo" table="UserGroupAL" schema="dbo" catalog="WashRoom" columns="UserID"/>
     </table>
     <table name="WashHouses" schema="dbo" catalog="WashRoom" type="TABLE">
       <column name="WashHouseID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -72,8 +102,76 @@
       <column name="WashHouseAddr" sqlType="varchar" precision="500" scale="0" nullable="true" jdbcType="12"/>
       <column name="WashHousePhone" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="WashHouseMiniName" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
-      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IsActive" sqlType="varchar" precision="1" scale="0" nullable="false" jdbcType="12"/>
       <column name="CreateTime" sqlType="datetime" precision="23" scale="3" nullable="true" jdbcType="93"/>
+      <primary-key name="PK_WashHouses" columns="WashHouseID"/>
+      <exported-key name="FK_OrderInfo_WashHouses" table="OrderInfo" schema="dbo" catalog="WashRoom" columns="WashHouseID"/>
     </table>
+    <table name="sysdiagrams" schema="dbo" catalog="WashRoom" type="TABLE">
+      <column name="name" sqlType="sysname" precision="128" scale="0" nullable="false" jdbcType="-9"/>
+      <column name="principal_id" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="diagram_id" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="version" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="definition" sqlType="varbinary" precision="2147483647" scale="0" nullable="true" jdbcType="-3"/>
+      <primary-key name="PK__sysdiagr__C2B05B61CF16D1C4" columns="diagram_id"/>
+      <index name="UK_principal_name" unique="true" columns="principal_id,name"/>
+    </table>
+    <procedure name="fn_diagramobjects" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_alterdiagram" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="1"/>
+        <parameter name="@owner_id" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="@version" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="@definition" sqlType="varbinary" precision="2147483647" scale="0" nullable="true" jdbcType="-3" type="1" index="4"/>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_creatediagram" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="1"/>
+        <parameter name="@owner_id" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="@version" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="@definition" sqlType="varbinary" precision="2147483647" scale="0" nullable="true" jdbcType="-3" type="1" index="4"/>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_dropdiagram" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="1"/>
+        <parameter name="@owner_id" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_helpdiagramdefinition" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="1"/>
+        <parameter name="@owner_id" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_helpdiagrams" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="1"/>
+        <parameter name="@owner_id" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_renamediagram" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="1"/>
+        <parameter name="@owner_id" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="@new_diagramname" sqlType="sysname" precision="256" scale="0" nullable="true" jdbcType="-9" type="1" index="3"/>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_upgraddiagrams" schema="dbo" catalog="WashRoom" type="2">
+      <prototype>
+        <parameter name="@RETURN_VALUE" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
   </data-source>
 </component>

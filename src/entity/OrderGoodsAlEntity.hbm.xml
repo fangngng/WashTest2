@@ -5,11 +5,17 @@
 <hibernate-mapping>
 
     <class name="entity.OrderGoodsAlEntity" table="OrderGoodsAL" schema="dbo" catalog="WashRoom">
-        <property name="alid" column="ALID"/>
-        <property name="orderId" column="OrderID"/>
-        <property name="goodsId" column="GoodsID"/>
-        <property name="goodsCount" column="GoodsCount"/>
-        <property name="isActive" column="IsActive"/>
-        <property name="createTime" column="CreateTime"/>
+        <id name="alid">
+            <column name="ALID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="goodsCount">
+            <column name="GoodsCount" sql-type="int" not-null="true"/>
+        </property>
+        <property name="isActive">
+            <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="CreateTime" sql-type="datetime"/>
+        </property>
     </class>
 </hibernate-mapping>

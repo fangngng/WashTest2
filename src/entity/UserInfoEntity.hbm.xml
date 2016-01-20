@@ -5,13 +5,29 @@
 <hibernate-mapping>
 
     <class name="entity.UserInfoEntity" table="UserInfo" schema="dbo" catalog="WashRoom">
-        <property name="userId" column="UserID"/>
-        <property name="userName" column="UserName"/>
-        <property name="userPhone" column="UserPhone"/>
-        <property name="userAddr" column="UserAddr"/>
-        <property name="userGroup" column="UserGroup"/>
-        <property name="userSex" column="UserSex"/>
-        <property name="isActive" column="IsActive"/>
-        <property name="createTime" column="CreateTime"/>
+        <id name="userId">
+            <column name="UserID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="userName">
+            <column name="UserName" sql-type="varchar" length="100"/>
+        </property>
+        <property name="userPhone">
+            <column name="UserPhone" sql-type="varchar" length="20"/>
+        </property>
+        <property name="userAddr">
+            <column name="UserAddr" sql-type="varchar" length="200"/>
+        </property>
+        <property name="userGroup">
+            <column name="UserGroup" sql-type="varchar" length="20"/>
+        </property>
+        <property name="userSex">
+            <column name="UserSex" sql-type="varchar" length="7"/>
+        </property>
+        <property name="isActive">
+            <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="CreateTime" sql-type="datetime"/>
+        </property>
     </class>
 </hibernate-mapping>

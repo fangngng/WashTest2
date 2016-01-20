@@ -1,13 +1,10 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by fangng on 2015/7/9.
+ * Created by fangngng on 2016/1/21.
  */
 @Entity
 @Table(name = "UserInfo", schema = "dbo", catalog = "WashRoom")
@@ -21,8 +18,8 @@ public class UserInfoEntity {
     private String isActive;
     private Timestamp createTime;
 
-    @Basic
-    @Column(name = "UserID")
+    @Id
+    @Column(name = "UserID", nullable = false, insertable = true, updatable = true)
     public int getUserId() {
         return userId;
     }
@@ -32,7 +29,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "UserName")
+    @Column(name = "UserName", nullable = true, insertable = true, updatable = true, length = 100)
     public String getUserName() {
         return userName;
     }
@@ -42,7 +39,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "UserPhone")
+    @Column(name = "UserPhone", nullable = true, insertable = true, updatable = true, length = 20)
     public String getUserPhone() {
         return userPhone;
     }
@@ -52,7 +49,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "UserAddr")
+    @Column(name = "UserAddr", nullable = true, insertable = true, updatable = true, length = 200)
     public String getUserAddr() {
         return userAddr;
     }
@@ -62,7 +59,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "UserGroup")
+    @Column(name = "UserGroup", nullable = true, insertable = true, updatable = true, length = 20)
     public String getUserGroup() {
         return userGroup;
     }
@@ -72,7 +69,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "UserSex")
+    @Column(name = "UserSex", nullable = true, insertable = true, updatable = true, length = 7)
     public String getUserSex() {
         return userSex;
     }
@@ -82,7 +79,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "IsActive")
+    @Column(name = "IsActive", nullable = false, insertable = true, updatable = true, length = 1)
     public String getIsActive() {
         return isActive;
     }
@@ -92,7 +89,7 @@ public class UserInfoEntity {
     }
 
     @Basic
-    @Column(name = "CreateTime")
+    @Column(name = "CreateTime", nullable = true, insertable = true, updatable = true)
     public Timestamp getCreateTime() {
         return createTime;
     }

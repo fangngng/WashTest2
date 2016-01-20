@@ -1,13 +1,10 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by fangng on 2015/7/9.
+ * Created by fangngng on 2016/1/21.
  */
 @Entity
 @Table(name = "LoginUser", schema = "dbo", catalog = "WashRoom")
@@ -21,8 +18,8 @@ public class LoginUserEntity {
     private Timestamp createTime;
     private String createBy;
 
-    @Basic
-    @Column(name = "LoginID")
+    @Id
+    @Column(name = "LoginID", nullable = false, insertable = true, updatable = true)
     public int getLoginId() {
         return loginId;
     }
@@ -32,7 +29,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "LoginName")
+    @Column(name = "LoginName", nullable = false, insertable = true, updatable = true, length = 100)
     public String getLoginName() {
         return loginName;
     }
@@ -42,7 +39,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "LoginPwd")
+    @Column(name = "LoginPwd", nullable = false, insertable = true, updatable = true, length = 100)
     public String getLoginPwd() {
         return loginPwd;
     }
@@ -52,7 +49,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "IsActive")
+    @Column(name = "IsActive", nullable = false, insertable = true, updatable = true, length = 1)
     public String getIsActive() {
         return isActive;
     }
@@ -62,7 +59,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "LastLogintime")
+    @Column(name = "LastLogintime", nullable = true, insertable = true, updatable = true)
     public Timestamp getLastLogintime() {
         return lastLogintime;
     }
@@ -72,7 +69,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "LoginCount")
+    @Column(name = "LoginCount", nullable = true, insertable = true, updatable = true)
     public Integer getLoginCount() {
         return loginCount;
     }
@@ -82,7 +79,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "CreateTime")
+    @Column(name = "CreateTime", nullable = true, insertable = true, updatable = true)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -92,7 +89,7 @@ public class LoginUserEntity {
     }
 
     @Basic
-    @Column(name = "CreateBy")
+    @Column(name = "CreateBy", nullable = true, insertable = true, updatable = true, length = 100)
     public String getCreateBy() {
         return createBy;
     }

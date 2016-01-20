@@ -4,13 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.GroupInfoEntity" table="GroupInfo" schema="dbo" catalog="WashRoom">
-        <id name="groupId">
-            <column name="GroupID" sql-type="int identity" not-null="true"/>
+    <class name="entity.UserGroupAlEntity" table="UserGroupAL" schema="dbo" catalog="WashRoom">
+        <id name="alid">
+            <column name="ALID" sql-type="int identity" not-null="true"/>
         </id>
-        <property name="groupName">
-            <column name="GroupName" sql-type="varchar" length="200" not-null="true"/>
-        </property>
         <property name="isActive">
             <column name="IsActive" sql-type="varchar" length="1" not-null="true"/>
         </property>

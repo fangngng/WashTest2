@@ -1,14 +1,11 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
- * Created by fangng on 2015/7/9.
+ * Created by fangngng on 2016/1/21.
  */
 @Entity
 @Table(name = "GoodsInfo", schema = "dbo", catalog = "WashRoom")
@@ -20,8 +17,8 @@ public class GoodsInfoEntity {
     private String isActive;
     private Timestamp createTime;
 
-    @Basic
-    @Column(name = "GoodsID")
+    @Id
+    @Column(name = "GoodsID", nullable = false, insertable = true, updatable = true)
     public int getGoodsId() {
         return goodsId;
     }
@@ -31,7 +28,7 @@ public class GoodsInfoEntity {
     }
 
     @Basic
-    @Column(name = "GoodsName")
+    @Column(name = "GoodsName", nullable = false, insertable = true, updatable = true, length = 100)
     public String getGoodsName() {
         return goodsName;
     }
@@ -41,7 +38,7 @@ public class GoodsInfoEntity {
     }
 
     @Basic
-    @Column(name = "GoodsDesc")
+    @Column(name = "GoodsDesc", nullable = true, insertable = true, updatable = true, length = 300)
     public String getGoodsDesc() {
         return goodsDesc;
     }
@@ -51,7 +48,7 @@ public class GoodsInfoEntity {
     }
 
     @Basic
-    @Column(name = "GoodsPrice")
+    @Column(name = "GoodsPrice", nullable = false, insertable = true, updatable = true, precision = 2)
     public BigDecimal getGoodsPrice() {
         return goodsPrice;
     }
@@ -61,7 +58,7 @@ public class GoodsInfoEntity {
     }
 
     @Basic
-    @Column(name = "IsActive")
+    @Column(name = "IsActive", nullable = false, insertable = true, updatable = true, length = 1)
     public String getIsActive() {
         return isActive;
     }
@@ -71,7 +68,7 @@ public class GoodsInfoEntity {
     }
 
     @Basic
-    @Column(name = "CreateTime")
+    @Column(name = "CreateTime", nullable = true, insertable = true, updatable = true)
     public Timestamp getCreateTime() {
         return createTime;
     }

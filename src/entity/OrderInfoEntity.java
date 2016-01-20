@@ -1,21 +1,17 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
- * Created by fangng on 2015/7/9.
+ * Created by fangngng on 2016/1/21.
  */
 @Entity
 @Table(name = "OrderInfo", schema = "dbo", catalog = "WashRoom")
 public class OrderInfoEntity {
     private int orderId;
     private Timestamp orderCreateDate;
-    private Integer userId;
     private Timestamp orderEndDate;
     private String orderStatus;
     private String orderIsPayed;
@@ -26,8 +22,8 @@ public class OrderInfoEntity {
     private String isActive;
     private Timestamp createTime;
 
-    @Basic
-    @Column(name = "OrderID")
+    @Id
+    @Column(name = "OrderID", nullable = false, insertable = true, updatable = true)
     public int getOrderId() {
         return orderId;
     }
@@ -37,7 +33,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "OrderCreateDate")
+    @Column(name = "OrderCreateDate", nullable = true, insertable = true, updatable = true)
     public Timestamp getOrderCreateDate() {
         return orderCreateDate;
     }
@@ -47,17 +43,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "UserID")
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "OrderEndDate")
+    @Column(name = "OrderEndDate", nullable = true, insertable = true, updatable = true)
     public Timestamp getOrderEndDate() {
         return orderEndDate;
     }
@@ -67,7 +53,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "OrderStatus")
+    @Column(name = "OrderStatus", nullable = true, insertable = true, updatable = true, length = 10)
     public String getOrderStatus() {
         return orderStatus;
     }
@@ -77,7 +63,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "OrderIsPayed")
+    @Column(name = "OrderIsPayed", nullable = true, insertable = true, updatable = true, length = 1)
     public String getOrderIsPayed() {
         return orderIsPayed;
     }
@@ -87,7 +73,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "OrderMoney")
+    @Column(name = "OrderMoney", nullable = true, insertable = true, updatable = true, precision = 2)
     public BigDecimal getOrderMoney() {
         return orderMoney;
     }
@@ -97,7 +83,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "OrderPayedMoney")
+    @Column(name = "OrderPayedMoney", nullable = true, insertable = true, updatable = true, precision = 2)
     public BigDecimal getOrderPayedMoney() {
         return orderPayedMoney;
     }
@@ -107,7 +93,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "OrderCoupons")
+    @Column(name = "OrderCoupons", nullable = true, insertable = true, updatable = true, precision = 2)
     public BigDecimal getOrderCoupons() {
         return orderCoupons;
     }
@@ -117,7 +103,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "PayMethod")
+    @Column(name = "PayMethod", nullable = true, insertable = true, updatable = true, length = 10)
     public String getPayMethod() {
         return payMethod;
     }
@@ -127,7 +113,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "IsActive")
+    @Column(name = "IsActive", nullable = false, insertable = true, updatable = true, length = 1)
     public String getIsActive() {
         return isActive;
     }
@@ -137,7 +123,7 @@ public class OrderInfoEntity {
     }
 
     @Basic
-    @Column(name = "CreateTime")
+    @Column(name = "CreateTime", nullable = true, insertable = true, updatable = true)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -156,7 +142,6 @@ public class OrderInfoEntity {
         if (orderId != that.orderId) return false;
         if (orderCreateDate != null ? !orderCreateDate.equals(that.orderCreateDate) : that.orderCreateDate != null)
             return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
         if (orderEndDate != null ? !orderEndDate.equals(that.orderEndDate) : that.orderEndDate != null) return false;
         if (orderStatus != null ? !orderStatus.equals(that.orderStatus) : that.orderStatus != null) return false;
         if (orderIsPayed != null ? !orderIsPayed.equals(that.orderIsPayed) : that.orderIsPayed != null) return false;
@@ -175,7 +160,6 @@ public class OrderInfoEntity {
     public int hashCode() {
         int result = orderId;
         result = 31 * result + (orderCreateDate != null ? orderCreateDate.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         result = 31 * result + (orderEndDate != null ? orderEndDate.hashCode() : 0);
         result = 31 * result + (orderStatus != null ? orderStatus.hashCode() : 0);
         result = 31 * result + (orderIsPayed != null ? orderIsPayed.hashCode() : 0);
